@@ -1,3 +1,14 @@
+## 🚀 How It Works: The RTLS Integration Engine
+
+![RTLS Web Interface](work_app.png)
+*The main dashboard visualizing real-time tracking data from both Pozyx and Ubisense systems simultaneously.*
+
+This application serves as a central processing hub designed to unify heterogeneous Ultra-Wideband (UWB) tracking environments. The asynchronous backend (built with Python and FastAPI) simultaneously ingests two entirely different data streams: raw JSON payloads via MQTT from the Pozyx system, and 40-byte binary UDP frames (OTW/ISO 24730) directly from the Ubisense server. 
+
+The engine decodes these streams, translates their specific coordinate scales (e.g., millimeters to meters), and applies spatial calibration offsets to project them onto a single, shared Cartesian plane. The normalized telemetry is then broadcasted via WebSockets to the frontend, rendering a live 2D map with pinpoint accuracy, signal quality tracking, and latency metrics down to the millisecond.
+
+---
+
 ## 🛠️ Hardware Infrastructure & Real-World Setup
 
 This project wasn't just about writing software—it required extensive physical engineering, hardware modifications, and precise spatial calibration in a real-world test environment. 
